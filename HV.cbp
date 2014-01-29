@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="HV" />
+		<Option makefile="makefile" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Option virtualFolders="addons\;src\;addons\ofxAssimpModelLoader\libs\assimp\include\;addons\ofxPostProcessing\src\;addons\ofxOsc\libs\oscpack\src\ip\;addons\ofxOsc\libs\oscpack\src\osc\;addons\ofxAssimpModelLoader\src\;addons\ofxAssimpModelLoader\libs\assimp\include\Compiler\;addons\ofxOsc\src\;addons\ofxOsc\libs\oscpack\src\ip\posix\;addons\ofxOsc\libs\oscpack\src\ip\win32\;src\MainApp\;headers\;headers\MainApp\;" />
+		<Build>
+			<Target title="release">
+				<Option output="bin/$(PROJECT_NAME)" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="obj/Release" />
+				<Option external_deps="../../../libs/openFrameworksCompiled/lib/win_cb/openFrameworks.lib;" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="../../../libs/openFrameworksCompiled/lib/win_cb/openFrameworks.lib" />
+				</Linker>
+			</Target>
+			<Target title="debug">
+				<Option output="bin/$(PROJECT_NAME)_DEBUG" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="obj/Debug/" />
+				<Option external_deps="../../../libs/openFrameworksCompiled/lib/win_cb/openFrameworksDebug.lib;" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-DHV_DEBUG" />
+				</Compiler>
+				<Linker>
+					<Add option="../../../libs/openFrameworksCompiled/lib/win_cb/openFrameworksDebug.lib" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wno-multichar" />
+			<Add directory="../../../libs/glu/include" />
+			<Add directory="../../../libs/freetype/include" />
+			<Add directory="../../../libs/freetype/include/freetype2" />
+			<Add directory="../../../libs/FreeImage/include" />
+			<Add directory="../../../libs/quicktime/include" />
+			<Add directory="../../../libs/rtAudio/include" />
+			<Add directory="../../../libs/fmodex/include" />
+			<Add directory="../../../libs/videoInput/include" />
+			<Add directory="../../../libs/glew/include" />
+			<Add directory="../../../libs/glut/include" />
+			<Add directory="../../../libs/glfw/include" />
+			<Add directory="../../../libs/openFrameworks" />
+			<Add directory="../../../libs/openFrameworks/3d" />
+			<Add directory="../../../libs/openFrameworks/app" />
+			<Add directory="../../../libs/openFrameworks/communication" />
+			<Add directory="../../../libs/openFrameworks/events" />
+			<Add directory="../../../libs/openFrameworks/gl" />
+			<Add directory="../../../libs/openFrameworks/graphics" />
+			<Add directory="../../../libs/openFrameworks/math" />
+			<Add directory="../../../libs/openFrameworks/sound" />
+			<Add directory="../../../libs/openFrameworks/types" />
+			<Add directory="../../../libs/openFrameworks/utils" />
+			<Add directory="../../../libs/openFrameworks/video" />
+			<Add directory="../../../libs/poco/include" />
+			<Add directory="../../../libs/tess2/include" />
+			<Add directory="../../../libs/cairo/include/cairo" />
+			<Add directory="../../../addons/ofxAssimpModelLoader/libs" />
+			<Add directory="../../../addons/ofxAssimpModelLoader/src" />
+			<Add directory="../../../addons/ofxAssimpModelLoader/libs/assimp" />
+			<Add directory="../../../addons/ofxAssimpModelLoader/libs/assimp/include" />
+			<Add directory="../../../addons/ofxAssimpModelLoader/libs/assimp/include/Compiler" />
+			<Add directory="../../../addons/ofxAssimpModelLoader/libs/assimp/lib" />
+			<Add directory="../../../addons/ofxAssimpModelLoader/libs/assimp/lib/win_cb" />
+			<Add directory="../../../addons/ofxOsc/libs" />
+			<Add directory="../../../addons/ofxOsc/src" />
+			<Add directory="../../../addons/ofxOsc/libs/oscpack" />
+			<Add directory="../../../addons/ofxOsc/libs/oscpack/src" />
+			<Add directory="../../../addons/ofxOsc/libs/oscpack/src/ip" />
+			<Add directory="../../../addons/ofxOsc/libs/oscpack/src/ip/posix" />
+			<Add directory="../../../addons/ofxOsc/libs/oscpack/src/ip/win32" />
+			<Add directory="../../../addons/ofxOsc/libs/oscpack/src/osc" />
+			<Add directory="../../../addons/ofxPostProcessing/libs" />
+			<Add directory="../../../addons/ofxPostProcessing/src" />
+		</Compiler>
+		<Linker>
+			<Add library="..\..\..\libs\FreeImage\lib\win_cb\FreeImage.lib" />
+			<Add library="..\..\..\libs\rtAudio\lib\win_cb\librtaudio.a" />
+			<Add library="..\..\..\libs\quicktime\lib\win_cb\qtmlClient.lib" />
+			<Add library="..\..\..\libs\cairo\lib\win_cb\libcairo.a" />
+			<Add library="..\..\..\libs\cairo\lib\win_cb\libpixman-1.a" />
+			<Add library="..\..\..\libs\freetype\lib\win_cb\libfreetype.a" />
+			<Add library="..\..\..\libs\glut\lib\win_cb\libglut.a" />
+			<Add library="..\..\..\libs\glfw\lib\win_cb\libglfw3.a" />
+			<Add library="..\..\..\libs\videoInput\lib\win_cb\videoInputLib.a" />
+			<Add library="..\..\..\libs\fmodex\lib\win_cb\libfmodex.a" />
+			<Add library="..\..\..\libs\glew\lib\win_cb\glew32s.lib" />
+			<Add library="..\..\..\libs\glu\lib\win_cb\glu32.lib" />
+			<Add library="..\..\..\libs\poco\lib\win_cb\libPocoNetSSL.a" />
+			<Add library="..\..\..\libs\poco\lib\win_cb\libPocoCrypto.a" />
+			<Add library="..\..\..\libs\poco\lib\win_cb\libPocoNet.a" />
+			<Add library="..\..\..\libs\poco\lib\win_cb\libPocoUtil.a" />
+			<Add library="..\..\..\libs\poco\lib\win_cb\libPocoXML.a" />
+			<Add library="..\..\..\libs\poco\lib\win_cb\libPocoFoundation.a" />
+			<Add library="..\..\..\libs\openssl\lib\win_cb\libssl.a" />
+			<Add library="..\..\..\libs\openssl\lib\win_cb\libcrypto.a" />
+			<Add library="..\..\..\libs\tess2\lib\win_cb\libtess2.a" />
+			<Add library="opengl32" />
+			<Add library="gdi32" />
+			<Add library="msimg32" />
+			<Add library="glu32" />
+			<Add library="dsound" />
+			<Add library="winmm" />
+			<Add library="dxguid" />
+			<Add library="strmbase" />
+			<Add library="strmiids" />
+			<Add library="z" />
+			<Add library="uuid" />
+			<Add library="ole32" />
+			<Add library="oleaut32" />
+			<Add library="setupapi" />
+			<Add library="wsock32" />
+			<Add library="ws2_32" />
+			<Add library="Iphlpapi" />
+			<Add library="Comdlg32" />
+			<Add library="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\win_cb\libassimp.dll" />
+		</Linker>
+		<ExtraCommands>
+			<Add after='xcopy /e /i /y &quot;$(PROJECT_DIR)..\..\..\export\win_cb\*.dll&quot;  &quot;$(PROJECT_DIR)bin&quot;' />
+			<Add after='cmd /c if not exist &quot;$(PROJECT_DIR)bin/data&quot; mkdir &quot;$(PROJECT_DIR)bin/data&quot;' />
+			<Mode after="always" />
+		</ExtraCommands>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/Compiler/poppack1.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include/Compiler" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/Compiler/pushpack1.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include/Compiler" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/DefaultLogger.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/IOStream.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/IOSystem.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/LogStream.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/Logger.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/NullLogger.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/ProgressHandler.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/aiAnim.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/aiAssert.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/aiCamera.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/aiColor4D.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/aiConfig.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/aiDefines.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/aiFileIO.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/aiLight.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/aiMaterial.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/aiMatrix3x3.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/aiMatrix4x4.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/aiMesh.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/aiPostProcess.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/aiQuaternion.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/aiScene.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/aiTexture.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/aiTypes.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/aiVector2D.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/aiVector3D.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/aiVersion.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/assimp.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/libs/assimp/include/assimp.hpp">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/libs/assimp/include" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/src/ofxAssimpAnimation.cpp">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/src/ofxAssimpAnimation.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/src/ofxAssimpMeshHelper.cpp">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/src/ofxAssimpMeshHelper.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/src/ofxAssimpModelLoader.cpp">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/src/ofxAssimpModelLoader.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/src/ofxAssimpTexture.cpp">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/src/ofxAssimpTexture.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxAssimpModelLoader/src/ofxAssimpUtils.h">
+			<Option virtualFolder="addons/ofxAssimpModelLoader/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/libs/oscpack/src/ip/IpEndpointName.cpp">
+			<Option virtualFolder="addons/ofxOsc/libs/oscpack/src/ip" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/libs/oscpack/src/ip/IpEndpointName.h">
+			<Option virtualFolder="addons/ofxOsc/libs/oscpack/src/ip" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/libs/oscpack/src/ip/NetworkingUtils.h">
+			<Option virtualFolder="addons/ofxOsc/libs/oscpack/src/ip" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/libs/oscpack/src/ip/PacketListener.h">
+			<Option virtualFolder="addons/ofxOsc/libs/oscpack/src/ip" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/libs/oscpack/src/ip/TimerListener.h">
+			<Option virtualFolder="addons/ofxOsc/libs/oscpack/src/ip" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/libs/oscpack/src/ip/UdpSocket.h">
+			<Option virtualFolder="addons/ofxOsc/libs/oscpack/src/ip" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/libs/oscpack/src/ip/posix/NetworkingUtils.cpp">
+			<Option virtualFolder="addons/ofxOsc/libs/oscpack/src/ip/posix" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/libs/oscpack/src/ip/posix/UdpSocket.cpp">
+			<Option virtualFolder="addons/ofxOsc/libs/oscpack/src/ip/posix" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/libs/oscpack/src/ip/win32/NetworkingUtilsWin.cpp">
+			<Option virtualFolder="addons/ofxOsc/libs/oscpack/src/ip/win32" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/libs/oscpack/src/ip/win32/UdpSocketWin.cpp">
+			<Option virtualFolder="addons/ofxOsc/libs/oscpack/src/ip/win32" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/libs/oscpack/src/osc/MessageMappingOscPacketListener.h">
+			<Option virtualFolder="addons/ofxOsc/libs/oscpack/src/osc" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/libs/oscpack/src/osc/OscException.h">
+			<Option virtualFolder="addons/ofxOsc/libs/oscpack/src/osc" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/libs/oscpack/src/osc/OscHostEndianness.h">
+			<Option virtualFolder="addons/ofxOsc/libs/oscpack/src/osc" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/libs/oscpack/src/osc/OscOutboundPacketStream.cpp">
+			<Option virtualFolder="addons/ofxOsc/libs/oscpack/src/osc" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/libs/oscpack/src/osc/OscOutboundPacketStream.h">
+			<Option virtualFolder="addons/ofxOsc/libs/oscpack/src/osc" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/libs/oscpack/src/osc/OscPacketListener.h">
+			<Option virtualFolder="addons/ofxOsc/libs/oscpack/src/osc" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/libs/oscpack/src/osc/OscPrintReceivedElements.cpp">
+			<Option virtualFolder="addons/ofxOsc/libs/oscpack/src/osc" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/libs/oscpack/src/osc/OscPrintReceivedElements.h">
+			<Option virtualFolder="addons/ofxOsc/libs/oscpack/src/osc" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/libs/oscpack/src/osc/OscReceivedElements.cpp">
+			<Option virtualFolder="addons/ofxOsc/libs/oscpack/src/osc" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/libs/oscpack/src/osc/OscReceivedElements.h">
+			<Option virtualFolder="addons/ofxOsc/libs/oscpack/src/osc" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/libs/oscpack/src/osc/OscTypes.cpp">
+			<Option virtualFolder="addons/ofxOsc/libs/oscpack/src/osc" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/libs/oscpack/src/osc/OscTypes.h">
+			<Option virtualFolder="addons/ofxOsc/libs/oscpack/src/osc" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/src/ofxOsc.h">
+			<Option virtualFolder="addons/ofxOsc/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/src/ofxOscArg.h">
+			<Option virtualFolder="addons/ofxOsc/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/src/ofxOscBundle.cpp">
+			<Option virtualFolder="addons/ofxOsc/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/src/ofxOscBundle.h">
+			<Option virtualFolder="addons/ofxOsc/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/src/ofxOscMessage.cpp">
+			<Option virtualFolder="addons/ofxOsc/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/src/ofxOscMessage.h">
+			<Option virtualFolder="addons/ofxOsc/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/src/ofxOscParameterSync.cpp">
+			<Option virtualFolder="addons/ofxOsc/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/src/ofxOscParameterSync.h">
+			<Option virtualFolder="addons/ofxOsc/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/src/ofxOscReceiver.cpp">
+			<Option virtualFolder="addons/ofxOsc/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/src/ofxOscReceiver.h">
+			<Option virtualFolder="addons/ofxOsc/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/src/ofxOscSender.cpp">
+			<Option virtualFolder="addons/ofxOsc/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxOsc/src/ofxOscSender.h">
+			<Option virtualFolder="addons/ofxOsc/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/BleachBypassPass.cpp">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/BleachBypassPass.h">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/BloomPass.cpp">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/BloomPass.h">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/ContrastPass.cpp">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/ContrastPass.h">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/ConvolutionPass.cpp">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/ConvolutionPass.h">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/DofAltPass.cpp">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/DofAltPass.h">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/DofPass.cpp">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/DofPass.h">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/EdgePass.cpp">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/EdgePass.h">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/FakeSSSPass.cpp">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/FakeSSSPass.h">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/FxaaPass.cpp">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/FxaaPass.h">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/GodRaysPass.cpp">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/GodRaysPass.h">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/HorizontalTiltShifPass.cpp">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/HorizontalTiltShifPass.h">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/KaleidoscopePass.cpp">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/KaleidoscopePass.h">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/LUTPass.cpp">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/LUTPass.h">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/LimbDarkeningPass.cpp">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/LimbDarkeningPass.h">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/NoiseWarpPass.cpp">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/NoiseWarpPass.h">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/PixelatePass.cpp">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/PixelatePass.h">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/PostProcessing.cpp">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/PostProcessing.h">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/RGBShiftPass.cpp">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/RGBShiftPass.h">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/RenderPass.cpp">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/RenderPass.h">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/RimHighlightingPass.cpp">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/RimHighlightingPass.h">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/SSAOPass.cpp">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/SSAOPass.h">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/ToonPass.cpp">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/ToonPass.h">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/VerticalTiltShifPass.cpp">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/VerticalTiltShifPass.h">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/ZoomBlurPass.cpp">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/ZoomBlurPass.h">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="../../../addons/ofxPostProcessing/src/ofxPostProcessing.h">
+			<Option virtualFolder="addons/ofxPostProcessing/src" />
+		</Unit>
+		<Unit filename="icon.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="src/MainApp.h">
+			<Option virtualFolder="headers/" />
+		</Unit>
+		<Unit filename="src/MainApp/computePercImpact.cpp">
+			<Option virtualFolder="src/MainApp/" />
+		</Unit>
+		<Unit filename="src/MainApp/defines.h">
+			<Option virtualFolder="headers/MainApp/" />
+		</Unit>
+		<Unit filename="src/MainApp/interactions.cpp">
+			<Option virtualFolder="src/MainApp/" />
+		</Unit>
+		<Unit filename="src/MainApp/set_get_variables.cpp">
+			<Option virtualFolder="src/MainApp/" />
+		</Unit>
+		<Unit filename="src/MainApp/setup.cpp">
+			<Option virtualFolder="src/MainApp/" />
+		</Unit>
+		<Unit filename="src/MainApp/setupReal.cpp">
+			<Option virtualFolder="src/MainApp/" />
+		</Unit>
+		<Unit filename="src/MainApp_draw.cpp">
+			<Option virtualFolder="src/" />
+		</Unit>
+		<Unit filename="src/MainApp_update.cpp">
+			<Option virtualFolder="src/" />
+		</Unit>
+		<Unit filename="src/PercImpact.cpp">
+			<Option virtualFolder="src/" />
+		</Unit>
+		<Unit filename="src/PercImpact.hpp">
+			<Option virtualFolder="headers/" />
+		</Unit>
+		<Unit filename="src/main.cpp">
+			<Option virtualFolder="src/" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
