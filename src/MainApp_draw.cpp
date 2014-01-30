@@ -134,8 +134,15 @@ void MainApp::draw(){
 
 
     /// Modèle avant
+    ofPushMatrix(); // repère type blender
+    ofRotateX(-90.0);
+
+    (front_model.getAnimation(0)).setPosition( (front_model.getAnimation(0)).getPosition() +0.005 );
+    cout << "Pos en s. de l'anim : " << (front_model.getAnimation(0)).getPositionInSeconds() << endl;
+    front_model.update();
     front_model.drawFaces();
 
+    ofPopMatrix(); // repère type blender
 
     // set gl state back to original
     glPopAttrib();
@@ -151,6 +158,8 @@ void MainApp::draw(){
 #endif // HV_DEBUG
 
     glPopAttrib();
+
+
 
 
 

@@ -57,6 +57,8 @@ class MainApp : public ofBaseApp {
         float bc_d_theta; // radians
 
         ofxAssimpModelLoader front_model;
+        //ofxAssimpAnimation& anim0;
+        int front_model_pos;
 
         // Lumières
         ofLight main_light;

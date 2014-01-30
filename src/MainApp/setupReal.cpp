@@ -83,9 +83,15 @@ void MainApp::setupReal(int _width, int _nb_cubes_x, bool first_init ){
      */
     ofDisableArbTex(); // we need GL_TEXTURE_2D for our models coords.
     front_model.loadModel("bidon.dae", true);
-    front_model.setPosition(0,0 , 200);
+    front_model.setPosition(0, 0 , 0);
     front_model.setLoopStateForAllAnimations(OF_LOOP_NORMAL);
     front_model.playAllAnimations();
+    cout << front_model.getAnimationCount() << " animations chargees pour front_model" << endl;
+    cout << "Vitesse de l'anim : " << (front_model.getAnimation(0)).getSpeed() << endl;
+    cout << "Duree de l'anim : " << (front_model.getAnimation(0)).getDurationInSeconds() << " s" << endl;
+
+    //anim0 = front_model.getAnimation(0);
+
 
 
     /// Lumières
