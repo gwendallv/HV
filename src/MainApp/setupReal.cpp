@@ -1,36 +1,98 @@
 #include "../MainApp.h"
 
+#include <fstream>
+
 
 /* Fonction qui permet de refaire un setup complet, avec d'autres paramètres,
  * pendant le déroulement du programme
  *
  * Si les paramètres ne sont pas transmis, ou sont transmis à -1, on utilise
  * les paramètres actuels.
+ *
+ * On lit également le fichier texte setup.hv qui va contenir certains paramètres.
+ * Tout les paramètres seront normalement initialisés et ceux présents dans ce
+ * fichier seront actualisés.
  */
-void MainApp::setupReal(int _width, int _nb_cubes_x, bool first_init ){
+void MainApp::setupReal(bool first_init){
 
-    /// Paramètres d'entrée
-    if (_width!=-1)
-        width = _width;
-    if (_nb_cubes_x!=-1)
-        nb_cubes_x = _nb_cubes_x;
+    /// Lecture des paramètres - setup.hv
+    float front_model_size;
+
+    ifstream setup_file("hvsetup.txt", ios::in );
+    if ( !setup_file )
+        cerr << "Impossible d'ouvrir setup.hv" << endl;
+    else {
+
+        string temp_setup;
+
+        while( !setup_file.eof() ) {
+            setup_file >> temp_setup;
+            if ( !temp_setup.empty() ) {
+                if ( temp_setup[0] != '#' ) {
+
+                    // Général
+                    if ( temp_setup.compare("width") == 0 )
+                        setup_file >> width;
+                    else if ( temp_setup.compare("osc_port") == 0 )
+                        setup_file >> osc_port;
+                    else if ( temp_setup.compare("release_framerate") == 0 )
+                        setup_file >> release_framerate;
+                    else if ( temp_setup.compare("debug_framerate") == 0 )
+                        setup_file >> debug_framerate;
+
+                    // Image de fond
+                    else if ( temp_setup.compare("path_image_fond") == 0 )
+                        setup_file >> path_image_fond;
+
+                    // Cubes de fond
+                    else if ( temp_setup.compare("nb_cubes_x") == 0 )
+                        setup_file >> nb_cubes_x;
+                    else if ( temp_setup.compare("ratio_nb_max_cubes_impact") == 0 ) {
+                        float ratio_nb_max_cubes_impact;
+                        setup_file >> ratio_nb_max_cubes_impact;
+                        nb_max_cubes_impact = ceil( (float)(nb_cubes_x)/ratio_nb_max_cubes_impact );
+                    }
+                    else if ( temp_setup.compare("tau") == 0 )
+                        setup_file >> tau;
+                    else if ( temp_setup.compare("disto_max") == 0 )
+                        setup_file >> disto_max;
+
+                    // Effets shaders
+                    else if ( temp_setup.compare("glow_amount") == 0 )
+                        setup_file >> glow_amount; // = 0.001953125; par défaut
+
+                    // Front model
+                    else if ( temp_setup.compare("front_model_size") == 0 )
+                        setup_file >> front_model_size;
+                    else if ( temp_setup.compare("front_model_pos") == 0 )
+                        setup_file >> front_model_pos.x >> front_model_pos.y >> front_model_pos.z ;
+
+                }
+            }
+        }
+
+        setup_file.close();
+    }
+
+
 
 
     /// Préparation de l'écran
+    if (ofGetWindowMode()==OF_FULLSCREEN)
+        width = ofGetWindowWidth();
     screen_ratio = (float)(ofGetScreenWidth())/ofGetScreenHeight();
     height = ceil(width/screen_ratio);
     cout << "Ratio d'ecran : " << screen_ratio << endl;
     cout << "Taille de la fenetre initiale (et du fond 3D pour z=0) : " << width << "px par " << height << "px" << endl;
     ofSetWindowShape(width, height);
-    ofSetFrameRate(60);
+    ofSetFrameRate(release_framerate);
 #ifdef HV_DEBUG
-	ofSetFrameRate(60);
+	ofSetFrameRate(debug_framerate);
 #endif // HV_DEBUG
 	ofSetWindowTitle("Harmonie visuelle");
 
 	/// OSC
-	cout << "Ecoute du port " << PORT << " pour l'OSC" << endl;
-	receiver.setup(PORT);
+	receiver.setup(osc_port);
 
 	/// Graine du générateur aléatoire
 	srand(time(NULL));
@@ -38,7 +100,7 @@ void MainApp::setupReal(int _width, int _nb_cubes_x, bool first_init ){
 
     /// Trucs graphiques
 	ofBackground(0);
-	image_fond.loadImage("fond_psyche.jpg");
+	image_fond.loadImage(path_image_fond);
 	Courier_New.loadFont("cour.ttf", 15);
 
     /* Conventions ofEasyCam
@@ -76,21 +138,17 @@ void MainApp::setupReal(int _width, int _nb_cubes_x, bool first_init ){
     back_cubes_spacing = back_cubes_size * 2;
 
     bc_d_theta = (cam.getFov()/(nb_cubes_x+2)) *M_PI /180.;
-    cout << "Fov : " << cam.getFov() << "deg" << endl;
 
     /* Création du mesh avant animé
      * /!\ recopie débile de l'exemple donné
      */
     ofDisableArbTex(); // we need GL_TEXTURE_2D for our models coords.
     front_model.loadModel("bidon.dae", true);
-    front_model.setPosition(0, 0 , 0);
+    front_model.setScale(front_model_size, front_model_size, front_model_size);
     front_model.setLoopStateForAllAnimations(OF_LOOP_NORMAL);
     front_model.playAllAnimations();
     cout << front_model.getAnimationCount() << " animations chargees pour front_model" << endl;
-    cout << "Vitesse de l'anim : " << (front_model.getAnimation(0)).getSpeed() << endl;
-    cout << "Duree de l'anim : " << (front_model.getAnimation(0)).getDurationInSeconds() << " s" << endl;
 
-    //anim0 = front_model.getAnimation(0);
 
 
 
@@ -120,20 +178,14 @@ void MainApp::setupReal(int _width, int _nb_cubes_x, bool first_init ){
         post.createPass<ToonPass>()->setEnabled(false);
         post.createPass<GodRaysPass>()->setEnabled(false);
         post.createPass<LimbDarkeningPass>()->setEnabled(false);
-
-        glow_amount = 0.0006; // = 0.001953125; par défaut
-        itg::BloomPass::last_bloom_instance->setBlurSize(glow_amount);
     }
+    itg::BloomPass::last_bloom_instance->setBlurSize(glow_amount);
 
     /// Paramètres d'animation
     back_anim_type = ANIM_ALL;
-    tau = 250;
+    PercImpact::nb_max_cubes_impact = nb_max_cubes_impact;
 
-    disto_max = 0.6;
-    nb_max_cubes_impact = ceil( (float)(nb_cubes_x)/6. );
-        PercImpact::nb_max_cubes_impact = nb_max_cubes_impact;
-
-    tempo = 120.;
+    tempo = 0.;
     rotate_y_general = 0.;
 
     translate_z.resize(nb_cubes_x);
@@ -146,6 +198,11 @@ void MainApp::setupReal(int _width, int _nb_cubes_x, bool first_init ){
         rotate_y[k].resize(nb_cubes_y);
         size_xyz[k].resize(nb_cubes_y, 1);
     }
+
+
+
+
+
 
 
     cout << "===== Fin d'initialisation Harmonie Visuelle =====" << endl << endl << endl << endl;

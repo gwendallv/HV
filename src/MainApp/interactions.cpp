@@ -21,11 +21,11 @@ void MainApp::keyPressed(int key){
         case 102 : // F
             if ( ofGetWindowMode()==OF_WINDOW ) {
                 ofSetFullscreen(1);
-                setupReal(ofGetScreenWidth());
+                setupReal();
             }
             else if ( ofGetWindowMode()==OF_FULLSCREEN ) {
                 ofSetFullscreen(0);
-                setupReal(WINDOW_WIDTH);
+                setupReal();
             }
             break;
 

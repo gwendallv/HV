@@ -1,0 +1,22 @@
+
+# Général
+width 800
+osc_port 12002
+debug_framerate 0
+release_framerate 60
+
+# Effets shaders 
+glow_amount 0.0006
+
+# Image de fond
+path_image_fond fond_psyche.jpg
+
+# Cubes de fond
+nb_cubes_x 29
+ratio_nb_max_cubes_impact 6.0
+tau 250
+disto_max 0.6
+
+# Pour le front model
+front_model_size 0.5
+front_model_pos 0. 0. 100.

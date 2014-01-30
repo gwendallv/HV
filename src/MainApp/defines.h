@@ -2,11 +2,6 @@
 #define MAINAPP_DEFINES_H_INCLUDED
 
 
-// taille de l'écran
-#define WINDOW_WIDTH 800
-
-// listen on port 12002 (Max for Live)
-#define PORT 12002
 
 // Divers defines...
 #define ANIM_ALL 0

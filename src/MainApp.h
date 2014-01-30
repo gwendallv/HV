@@ -19,7 +19,7 @@ class MainApp : public ofBaseApp {
 
         // Méthodes du moteur du programme
 		void setup();
-            void setupReal(int _width = -1, int _nb_cubes_x = -1, bool first_init=false);
+            void setupReal(bool first_init=false);
 		void update();
 		void draw();
             void computePercImpact(list<PercImpact>::iterator it, float elapsed_time);
@@ -39,11 +39,13 @@ class MainApp : public ofBaseApp {
 
         /// Paramètres de communication
 		ofxOscReceiver receiver;
+		int osc_port;
 
 
         /// Paramètres d'affichage
         int width, height;
         float screen_ratio;
+        int debug_framerate, release_framerate;
         ofTrueTypeFont Courier_New;
 
         // Instance de la caméra OF OpenGL
@@ -57,8 +59,7 @@ class MainApp : public ofBaseApp {
         float bc_d_theta; // radians
 
         ofxAssimpModelLoader front_model;
-        //ofxAssimpAnimation& anim0;
-        int front_model_pos;
+        ofPoint front_model_pos;
 
         // Lumières
         ofLight main_light;
@@ -71,6 +72,7 @@ class MainApp : public ofBaseApp {
         bool compute_bloom;
 
         // Fond
+        string path_image_fond;
         ofImage image_fond;
 
 
