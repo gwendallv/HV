@@ -45,5 +45,14 @@ void MainApp::update(){
             volume = m.getArgAsFloat(0);
 		}
 
+
+		else if (m.getAddress() == "/is_playing") {
+            int is_playing = m.getArgAsInt32(0);
+            if ( is_playing )
+                post[IDX_EDGE_PASS]->setEnabled(false);
+            else
+                post[IDX_EDGE_PASS]->setEnabled(true);
+		}
+
 	}
 }

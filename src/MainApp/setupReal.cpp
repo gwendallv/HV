@@ -17,6 +17,7 @@ void MainApp::setupReal(bool first_init){
 
     /// Lecture des paramètres - setup.hv
     float front_model_size;
+    string front_model_name;
 
     ifstream setup_file("hvsetup.txt", ios::in );
     if ( !setup_file )
@@ -62,6 +63,8 @@ void MainApp::setupReal(bool first_init){
                         setup_file >> glow_amount; // = 0.001953125; par défaut
 
                     // Front model
+                    else if ( temp_setup.compare("front_model_name") == 0 )
+                        setup_file >> front_model_name;
                     else if ( temp_setup.compare("front_model_size") == 0 )
                         setup_file >> front_model_size;
                     else if ( temp_setup.compare("front_model_pos") == 0 )
@@ -143,7 +146,7 @@ void MainApp::setupReal(bool first_init){
      * /!\ recopie débile de l'exemple donné
      */
     ofDisableArbTex(); // we need GL_TEXTURE_2D for our models coords.
-    front_model.loadModel("bidon.dae", true);
+    front_model.loadModel(front_model_name, true);
     front_model.setScale(front_model_size, front_model_size, front_model_size);
     front_model.setLoopStateForAllAnimations(OF_LOOP_NORMAL);
     front_model.playAllAnimations();
@@ -174,7 +177,11 @@ void MainApp::setupReal(bool first_init){
         post.createPass<KaleidoscopePass>()->setEnabled(false);
         post.createPass<NoiseWarpPass>()->setEnabled(false);
         post.createPass<PixelatePass>()->setEnabled(false);
+#ifdef HV_DEBUG
         post.createPass<EdgePass>()->setEnabled(false);
+#else
+        post.createPass<EdgePass>()->setEnabled(true);
+#endif // HV_DEBUG
         post.createPass<ToonPass>()->setEnabled(false);
         post.createPass<GodRaysPass>()->setEnabled(false);
         post.createPass<LimbDarkeningPass>()->setEnabled(false);
